@@ -8,7 +8,7 @@ Cypress.Commands.add('login', () => {
     cy.visit('/');
     cy.get('#Input_Username').type(email);
     cy.get('#Input_Password').type(password);
-    cy.get('#next').click();
+    cy.get('#Submit_logins').click();
 
     // Static wait to ensure email is received
     cy.wait(5000);
@@ -29,7 +29,7 @@ Cypress.Commands.add('login', () => {
             headers: {Authorization: `Bearer ${mailinatorApiToken}`}
         }).then(response => {
             const htmlBody = response.body.parts[0].body;
-            const mfaToken = extractSixDigitCode({htmlBody});
+            const mfaToken = extractMFA_Code({htmlBody});
 
             cy.log("INFO " + mfaToken);
             cy.get('#token').type(mfaToken);
@@ -37,7 +37,10 @@ Cypress.Commands.add('login', () => {
         });
     });
 
-    function extractSixDigitCode({htmlBody}) {
+    function extractMFA_Code({htmlBody}) {
+
+        //IMPORTANT
+        //regex pattern ought to be adjusted to the pattern the code from your MFA email contains
         const regex = /Use verification code (\d{6})/i;
         const match = regex.exec(htmlBody);
         return match ? match[1] : "No verification code found";
