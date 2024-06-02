@@ -1,9 +1,14 @@
 describe('Perform Actions after Login', () => {
   beforeEach(() => {
     cy.session('userSession', () => {
-
-      //Below command defined in support folder commands.js
       cy.login();
     });
   });
+
+  it('Get Past Email MFA', () => {
+    // Static wait to ensure email is received
+    cy.visit('/');
+    cy.wait(5000);
+  });
+
 });
