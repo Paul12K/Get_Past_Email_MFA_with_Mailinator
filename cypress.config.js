@@ -1,16 +1,17 @@
-const { defineConfig } = require('cypress');
+const {defineConfig} = require('cypress');
 
 module.exports = defineConfig({
   e2e: {
+    // Configure your E2E tests here
     specPattern: "cypress/e2e/**/*.{cy,spec}.{js,ts}",
-    baseUrl: "https://dev.helper.adamstaxforms.com",
+    baseUrl: "YOUR_BASE_URL",
     env: {
-      email: process.env.CYPRESS_EMAIL,
-      password: process.env.CYPRESS_PASSWORD,
-      mailinatorDomain: process.env.CYPRESS_MAILINATOR_DOMAIN,
-      mailinatorInbox: process.env.CYPRESS_MAILINATOR_INBOX,
-      mailinatorApiToken: process.env.CYPRESS_MAILINATOR_API_TOKEN
+      //EXMAPLE DATA BELOW
+      email: "test7@taxteam.testinator.com",
+      password: "Adamstaxtest123!",
+      mailinatorDomain: "taxtestteam.testinator.com",
+      mailinatorInbox: "test7",
+      mailinatorApiToken: "YOUR_API_TOKEN",
     },
   }
-
 });
