@@ -12,4 +12,5 @@ module.exports = defineConfig({
       mailinatorApiToken: process.env.CYPRESS_MAILINATOR_API_TOKEN
     },
   }
+
 });
