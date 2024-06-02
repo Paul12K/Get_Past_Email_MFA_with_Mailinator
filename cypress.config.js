@@ -6,7 +6,8 @@ module.exports = defineConfig({
     specPattern: "cypress/e2e/**/*.{cy,spec}.{js,ts}",
     baseUrl: "YOUR_BASE_URL",
     env: {
-      //EXMAPLE DATA BELOW
+
+      //EXMAPLE DATA BELOW <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
       email: "test7@taxteam.testinator.com",
       password: "Adamstaxtest123!",
       mailinatorDomain: "taxtestteam.testinator.com",
